@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=3 uid="uid://bvp6ooaef0eyp"]
+
+[ext_resource type="Script" uid="uid://bhwxrdkalvwom" path="res://scripts/inimigo.gd" id="1_gw314"]
+[ext_resource type="Texture2D" uid="uid://bpwna7lre1h2e" path="res://inimigos/pixilart-sprite (1).png" id="2_ivxke"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdbph"]
+atlas = ExtResource("2_ivxke")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36cvr"]
+atlas = ExtResource("2_ivxke")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st68q"]
+atlas = ExtResource("2_ivxke")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq1om"]
+atlas = ExtResource("2_ivxke")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tn5b"]
+atlas = ExtResource("2_ivxke")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vofwj"]
+atlas = ExtResource("2_ivxke")
+region = Rect2(800, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ur4tx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdbph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36cvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st68q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq1om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tn5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vofwj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36cvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st68q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq1om")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdbph")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_netj5"]
+radius = 29.0
+height = 76.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivxke"]
+size = Vector2(243, 20)
+
+[node name="inimigo" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_gw314")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ur4tx")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 2)
+shape = SubResource("CapsuleShape2D_netj5")
+
+[node name="VisionRay" type="RayCast2D" parent="."]
+position = Vector2(-92, 0)
+target_position = Vector2(150, 0)
+
+[node name="EdgeRay" type="RayCast2D" parent="."]
+position = Vector2(-16, 16)
+target_position = Vector2(-46, 21)
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(-117, 21)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(-5.5, 20)
+shape = SubResource("RectangleShape2D_ivxke")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="DirectionTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true

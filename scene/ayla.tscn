@@ -1,0 +1,163 @@
+[gd_scene load_steps=19 format=3 uid="uid://njh8jihr0dhu"]
+
+[ext_resource type="Script" uid="uid://boiaef7feg5rw" path="res://scripts/ayla.gd" id="1_o51yt"]
+[ext_resource type="Texture2D" uid="uid://ce0rb0uu28ecj" path="res://sprite ayla/andando/1754348366438.png" id="2_o51yt"]
+[ext_resource type="Texture2D" uid="uid://ds5m0ubc4acbs" path="res://sprite ayla/andando/1754348530002.png" id="3_52vt8"]
+[ext_resource type="Texture2D" uid="uid://b0o63r4823epl" path="res://sprite ayla/andando/1754351980049.png" id="4_c8nvh"]
+[ext_resource type="Texture2D" uid="uid://b66lsjn68dje" path="res://sprite ayla/arma/1754505194683.png" id="5_gmadc"]
+[ext_resource type="Texture2D" uid="uid://pbhemlfmd2v5" path="res://sprite ayla/andando/1753901915994.png" id="5_hre7v"]
+[ext_resource type="Texture2D" uid="uid://c0s3ep4wukkd7" path="res://sprite ayla/arma/1754505219485.png" id="6_tg42d"]
+[ext_resource type="Texture2D" uid="uid://bywkiknpfhlvd" path="res://sprite ayla/arma/1754505302321.png" id="7_l6rnl"]
+[ext_resource type="Texture2D" uid="uid://bksl1tpxv5etw" path="res://sprite ayla/atirando/1754506069911.png" id="8_7glaa"]
+[ext_resource type="Texture2D" uid="uid://bc6jn5jplbea7" path="res://sprite ayla/atirando/1754506386857.png" id="9_n453b"]
+[ext_resource type="Texture2D" uid="uid://i1u7yt8j2vvv" path="res://sprite ayla/atirando/1754506448048.png" id="10_thav1"]
+[ext_resource type="Texture2D" uid="uid://wi6hm6fjwbm0" path="res://sprite ayla/machado/1754353061385.png" id="11_5kaxr"]
+[ext_resource type="Texture2D" uid="uid://bcs0i03fyrkkm" path="res://sprite ayla/machado/1754353358617.png" id="12_yvgef"]
+[ext_resource type="Texture2D" uid="uid://c8525rikb64oc" path="res://sprite ayla/machado/1754353669464.png" id="13_4c7sv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2bb0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o51yt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_52vt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c8nvh")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_5kaxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yvgef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4c7sv")
+}],
+"loop": true,
+"name": &"machado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hre7v")
+}],
+"loop": true,
+"name": &"parada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_52vt8")
+}],
+"loop": true,
+"name": &"parada lado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o51yt")
+}],
+"loop": true,
+"name": &"pulando",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gmadc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gmadc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tg42d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l6rnl")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_7glaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_n453b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_thav1")
+}],
+"loop": true,
+"name": &"mirando",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tg42d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_5kaxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yvgef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4c7sv")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o4v3j"]
+radius = 9.0
+height = 52.0
+
+[node name="ayla" type="CharacterBody2D"]
+collision_mask = 14
+script = ExtResource("1_o51yt")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(25, -27)
+scale = Vector2(0.707, 0.75975)
+sprite_frames = SubResource("SpriteFrames_p2bb0")
+animation = &"machado"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(-1, 3)
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 3
+limit_bottom = 360
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+drag_top_margin = 0.1
+editor_draw_limits = true
+
+[node name="comarma" type="AnimatedSprite2D" parent="."]
+position = Vector2(28, -25)
+scale = Vector2(0.76, 0.76)
+sprite_frames = SubResource("SpriteFrames_gmadc")
+animation = &"andando"
+
+[node name="machado" type="AnimatedSprite2D" parent="."]
+position = Vector2(28, -24)
+scale = Vector2(0.76, 0.76)
+sprite_frames = SubResource("SpriteFrames_tg42d")
+animation = &"andando"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(26, -27)
+shape = SubResource("CapsuleShape2D_o4v3j")

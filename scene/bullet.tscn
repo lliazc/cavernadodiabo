@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyslot6x4txiv"]
+
+[ext_resource type="Script" uid="uid://cc1hahpyos0uy" path="res://scripts/bullet.gd" id="1_xw300"]
+[ext_resource type="Texture2D" uid="uid://byb0kt2vjhojx" path="res://Details/lava_drop2_6.png" id="2_m2l4i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bt1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m2l4i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_duwpg"]
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("1_xw300")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1bt1p")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_duwpg")
