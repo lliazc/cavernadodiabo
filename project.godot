@@ -73,6 +73,14 @@ arma_off={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="inimigos"
+2d_physics/layer_3="mundo"
+2d_physics/layer_4="controle"
+2d_physics/layer_5="projetil"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

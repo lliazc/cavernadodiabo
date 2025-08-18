@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://w176yfmv5oi5"]
+
+[ext_resource type="Script" uid="uid://cmx60w0hhpda" path="res://scripts/teste.gd" id="1_0ol6v"]
+[ext_resource type="PackedScene" uid="uid://njh8jihr0dhu" path="res://scene/ayla.tscn" id="1_aybis"]
+[ext_resource type="PackedScene" uid="uid://bvp6ooaef0eyp" path="res://scene/inimigo.tscn" id="2_0ol6v"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0ol6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0po7"]
+size = Vector2(643.5, 99.5)
+
+[node name="teste" type="Node2D"]
+script = ExtResource("1_0ol6v")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_0ol6v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(324.25, 312)
+shape = SubResource("RectangleShape2D_w0po7")
+
+[node name="ayla" parent="." instance=ExtResource("1_aybis")]
+position = Vector2(326, 248)
+collision_mask = 30
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_0ol6v")]
+position = Vector2(490, 216)
