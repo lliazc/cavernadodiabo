@@ -5,6 +5,16 @@ extends CharacterBody2D
 var direcao := 1
 var andando := false
 
+@export var velocidadeTiro = 120
+@export var dano = 1
+var tiro = preload("res://scripts/bullet.gd")
+
+var idle_atirando = false
+var atirando_cima = false 
+var pode_atirar = false
+
+
+
 func _ready():
 	set_physics_process(true)
 	
