@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://btb1rah8ae6mw"]
+[gd_scene load_steps=20 format=4 uid="uid://btb1rah8ae6mw"]
 
 [ext_resource type="TileSet" uid="uid://c5lu4b0hbj7ss" path="res://tileset/caverna.tres" id="1_3seht"]
 [ext_resource type="PackedScene" uid="uid://bvp6ooaef0eyp" path="res://scene/inimigo.tscn" id="2_2d608"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c6icjcj8icjlu" path="res://craftpix-785611-free-dungeon-platformer-pixel-art-tileset/PNG/Items/000_0063_heart3.png" id="12_nw5p6"]
 [ext_resource type="Texture2D" uid="uid://dgxdmcy4xa2v2" path="res://craftpix-785611-free-dungeon-platformer-pixel-art-tileset/PNG/Items/000_0062_heart4.png" id="13_fyl5i"]
 [ext_resource type="Texture2D" uid="uid://bsys2ycugxsaq" path="res://craftpix-785611-free-dungeon-platformer-pixel-art-tileset/PNG/Items/000_0061_heart5.png" id="14_8g1w3"]
+[ext_resource type="Script" uid="uid://ddy6bw7e4u2xi" path="res://scripts/vitoria.gd" id="16_2d608"]
 [ext_resource type="Texture2D" uid="uid://cciur864trvjc" path="res://Details/door.png" id="16_qqvqa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j6x5v"]
@@ -219,6 +220,7 @@ value = 100.0
 [node name="vitoria" type="Area2D" parent="."]
 position = Vector2(1262, 298)
 collision_layer = 6
+script = ExtResource("16_2d608")
 
 [node name="Sprite2D" type="Sprite2D" parent="vitoria"]
 texture = ExtResource("16_qqvqa")

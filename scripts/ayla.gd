@@ -26,10 +26,7 @@ func _ready() -> void:
 	add_to_group("player")
 	
 	# Conectar o sinal de body_entered da área de vitória corretamente
-	if area_vitoria:
-		area_vitoria.connect("body_entered", Callable(self, "_on_area_vitoria_body_entered"))
-	else:
-		print("Área de vitória não encontrada!")
+
 	
 	# Conectar o sinal de body_entered da área do machado corretamente
 	if machado_area:
@@ -179,15 +176,3 @@ func verificar_acao():
 			animation.play("parada lado")
 
 # Novo sinal para detectar quando o personagem entra na área de vitória
-func _on_area_vitoria_body_entered(body: Node2D):
-	# Verifica se o personagem entrou na área de vitória
-	if body.is_in_group("player"):
-		# Marcar a fase como vencida
-		fase_vencida = true
-		# Chamar a função para realizar a transição de fase
-		_celebrar_vitoria()
-
-# Função para mostrar tela de vitória ou outras ações
-func _celebrar_vitoria():
-	print("Você venceu a fase!")
-	get_tree().change_scene("res://scene/level_2.tscn")  # Muda para a próxima fase (ajuste o caminho para o próximo nível)
