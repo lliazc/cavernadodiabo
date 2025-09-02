@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcs0i03fyrkkm"
-path="res://.godot/imported/1754353358617.png-803c2b55986bc40beacc6c5a644681cc.ctex"
+uid="uid://wi6hm6fjwbm0"
+path="res://.godot/imported/1754353061385.png-b51c83f6f2581b7754066dc83bf21018.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite ayla/machado/1754353358617.png"
-dest_files=["res://.godot/imported/1754353358617.png-803c2b55986bc40beacc6c5a644681cc.ctex"]
+source_file="res://sprite ayla/machado/andando/1754353061385.png"
+dest_files=["res://.godot/imported/1754353061385.png-b51c83f6f2581b7754066dc83bf21018.ctex"]
 
 [params]
 

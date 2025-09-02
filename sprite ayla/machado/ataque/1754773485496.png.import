@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8525rikb64oc"
-path="res://.godot/imported/1754353669464.png-8ac28a401c0d60d12d704c2a276b7a19.ctex"
+uid="uid://uxbq5p8cdmbq"
+path="res://.godot/imported/1754773485496.png-77c2c38e5322e207694bc5f4eec43266.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite ayla/machado/1754353669464.png"
-dest_files=["res://.godot/imported/1754353669464.png-8ac28a401c0d60d12d704c2a276b7a19.ctex"]
+source_file="res://sprite ayla/machado/ataque/1754773485496.png"
+dest_files=["res://.godot/imported/1754773485496.png-77c2c38e5322e207694bc5f4eec43266.ctex"]
 
 [params]
 

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cry0sramxx6tk"]
+
+[node name="level2" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 275.0
+offset_top = 165.0
+offset_right = 330.0
+offset_bottom = 188.0
+text = "passou"

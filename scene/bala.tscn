@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://baft16vvxmjgd"]
+
+[ext_resource type="Script" uid="uid://7j0pnkeb3p3l" path="res://scripts/bala.gd" id="1_ui3sr"]
+[ext_resource type="Texture2D" uid="uid://cvvbi3h8kdqlu" path="res://img/bala.png" id="1_ywahg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui3sr"]
+atlas = ExtResource("1_ywahg")
+region = Rect2(0, 0, 441, 337)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oig0l"]
+atlas = ExtResource("1_ywahg")
+region = Rect2(441, 674, 441, 337)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83twe"]
+atlas = ExtResource("1_ywahg")
+region = Rect2(882, 0, 441, 337)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kctcf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ui3sr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oig0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83twe")
+}],
+"loop": true,
+"name": &"bala",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_168o5"]
+radius = 62.0
+height = 261.956
+
+[node name="bala" type="Area2D"]
+scale = Vector2(0.0208035, 0.0263248)
+script = ExtResource("1_ui3sr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 12)
+sprite_frames = SubResource("SpriteFrames_kctcf")
+animation = &"bala"
+frame = 2
+frame_progress = 0.0322395
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(63, 62)
+rotation = 1.56912
+shape = SubResource("CapsuleShape2D_168o5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

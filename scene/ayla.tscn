@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://njh8jihr0dhu"]
+[gd_scene load_steps=22 format=3 uid="uid://njh8jihr0dhu"]
 
 [ext_resource type="Script" uid="uid://boiaef7feg5rw" path="res://scripts/ayla.gd" id="1_o51yt"]
 [ext_resource type="Texture2D" uid="uid://ce0rb0uu28ecj" path="res://sprite ayla/andando/1754348366438.png" id="2_o51yt"]
@@ -11,9 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://bksl1tpxv5etw" path="res://sprite ayla/atirando/1754506069911.png" id="8_7glaa"]
 [ext_resource type="Texture2D" uid="uid://bc6jn5jplbea7" path="res://sprite ayla/atirando/1754506386857.png" id="9_n453b"]
 [ext_resource type="Texture2D" uid="uid://i1u7yt8j2vvv" path="res://sprite ayla/atirando/1754506448048.png" id="10_thav1"]
-[ext_resource type="Texture2D" uid="uid://wi6hm6fjwbm0" path="res://sprite ayla/machado/1754353061385.png" id="11_5kaxr"]
-[ext_resource type="Texture2D" uid="uid://bcs0i03fyrkkm" path="res://sprite ayla/machado/1754353358617.png" id="12_yvgef"]
-[ext_resource type="Texture2D" uid="uid://c8525rikb64oc" path="res://sprite ayla/machado/1754353669464.png" id="13_4c7sv"]
+[ext_resource type="Texture2D" uid="uid://wi6hm6fjwbm0" path="res://sprite ayla/machado/andando/1754353061385.png" id="11_5kaxr"]
+[ext_resource type="Texture2D" uid="uid://bcs0i03fyrkkm" path="res://sprite ayla/machado/andando/1754353358617.png" id="12_yvgef"]
+[ext_resource type="Texture2D" uid="uid://c8525rikb64oc" path="res://sprite ayla/machado/andando/1754353669464.png" id="13_4c7sv"]
+[ext_resource type="Texture2D" uid="uid://df5u7aac0obll" path="res://sprite ayla/machado/ataque/1754773706891.png" id="15_7glaa"]
+[ext_resource type="Texture2D" uid="uid://uxbq5p8cdmbq" path="res://sprite ayla/machado/ataque/1754773485496.png" id="16_n453b"]
+[ext_resource type="Texture2D" uid="uid://cy875iqip0me0" path="res://sprite ayla/machado/ataque/1754353061385.png" id="17_thav1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p2bb0"]
 animations = [{
@@ -116,15 +119,34 @@ animations = [{
 "loop": true,
 "name": &"andando",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_thav1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_7glaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_n453b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_thav1")
+}],
+"loop": false,
+"name": &"ataque",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o4v3j"]
 radius = 9.0
 height = 52.0
 
-[node name="ayla" type="CharacterBody2D"]
+[node name="ayla" type="CharacterBody2D" groups=["player"]]
 collision_mask = 14
 script = ExtResource("1_o51yt")
+metadata/_edit_horizontal_guides_ = [-23.0, -23.0]
+metadata/_edit_vertical_guides_ = [42.0, 41.0]
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(25, -27)
@@ -135,11 +157,11 @@ animation = &"machado"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Camera" type="Camera2D" parent="."]
-visible = false
 position = Vector2(-1, 3)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = 3
+limit_right = 1283
 limit_bottom = 360
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -157,7 +179,14 @@ animation = &"andando"
 position = Vector2(28, -24)
 scale = Vector2(0.76, 0.76)
 sprite_frames = SubResource("SpriteFrames_tg42d")
-animation = &"andando"
+animation = &"ataque"
+frame = 3
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="machado"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="machado/Area2D"]
+polygon = PackedVector2Array(14.4737, -3.94737, 23.6842, -7.89474, 34.2105, -5.26316, 43.4211, 6.57895, 31.5789, 0, 23.6842, -2.63158, 10.5263, -2.63158)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(26, -27)

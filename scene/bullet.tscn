@@ -19,8 +19,8 @@ radius = 5.0
 height = 11.7
 
 [node name="bullet" type="Area2D"]
-collision_layer = 8
-collision_mask = 5
+collision_layer = 0
+collision_mask = 3
 script = ExtResource("1_xw300")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -32,6 +32,8 @@ scale = Vector2(1.5, 1)
 shape = SubResource("CapsuleShape2D_duwpg")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="TimerRemover" type="Timer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

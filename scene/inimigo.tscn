@@ -58,7 +58,7 @@ animations = [{
 radius = 29.0
 height = 66.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" groups=["inimigo"]]
+[node name="inimigo" type="CharacterBody2D" groups=["inimigo"]]
 collision_layer = 2
 collision_mask = 29
 script = ExtResource("1_gw314")
@@ -73,43 +73,21 @@ visibility_layer = 7
 position = Vector2(-1, 9)
 shape = SubResource("CapsuleShape2D_gw314")
 
-[node name="timer_andar" type="Timer" parent="."]
+[node name="ShootTimer" type="Timer" parent="." groups=["player"]]
 wait_time = 5.0
 autostart = true
 
-[node name="visao" type="Node2D" parent="."]
-visible = false
-
-[node name="cima" type="RayCast2D" parent="visao"]
-target_position = Vector2(0, -160)
-collision_mask = 5
-
-[node name="baixo" type="RayCast2D" parent="visao"]
-target_position = Vector2(0, 160)
-collision_mask = 5
-
-[node name="frente" type="RayCast2D" parent="visao"]
-target_position = Vector2(160, 0)
-
-[node name="Timer_hit" type="Timer" parent="."]
+[node name="WaitTimer" type="Timer" parent="."]
 wait_time = 0.07
 one_shot = true
-
-[node name="miras" type="Node2D" parent="."]
-visible = false
-
-[node name="cima" type="Marker2D" parent="miras"]
-position = Vector2(0, -30)
-
-[node name="baixo" type="Marker2D" parent="miras"]
-position = Vector2(0, 50)
-
-[node name="frente" type="Marker2D" parent="miras"]
-position = Vector2(-40, 10)
 
 [node name="Tiro_delay" type="Timer" parent="."]
 wait_time = 0.09
 one_shot = true
 
-[connection signal="timeout" from="timer_andar" to="." method="_on_timer_andar_timeout"]
-[connection signal="timeout" from="Timer_hit" to="." method="_on_timer_hit_timeout"]
+[node name="GunPosition" type="Marker2D" parent="."]
+position = Vector2(-38, 4)
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_timer_andar_timeout"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_timer_hit_timeout"]
+[connection signal="timeout" from="Tiro_delay" to="." method="_on_tiro_delay_timeout"]

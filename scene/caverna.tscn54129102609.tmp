@@ -216,12 +216,13 @@ value = 100.0
 
 [node name="inimigos" type="Node" parent="."]
 
-[node name="vitoria" type="Area2D" parent="."]
+[node name="vitória" type="Area2D" parent="."]
 position = Vector2(1262, 298)
-collision_layer = 6
+collision_layer = 0
+collision_mask = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="vitoria"]
+[node name="Sprite2D" type="Sprite2D" parent="vitória"]
 texture = ExtResource("16_qqvqa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="vitoria"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vitória"]
 shape = SubResource("CapsuleShape2D_2d608")
